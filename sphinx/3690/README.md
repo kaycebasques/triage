@@ -30,7 +30,7 @@ Replacing `<bzl>` with one of the following:
 
 ### View
 
-Go to http://0.0.0.0:8000/testmod.html
+Go to http://0.0.0.0:8000
 
 ### (Optional) Cleanup
 
