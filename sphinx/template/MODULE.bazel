@@ -1,4 +1,4 @@
-module(name = "x2f8gp0")
+module(name = "issue_x2f8gp0")
 bazel_dep(name = "rules_python", version = "1.9.0")
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
