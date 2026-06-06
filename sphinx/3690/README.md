@@ -7,13 +7,13 @@ https://github.com/sphinx-doc/sphinx/issues/3690
 ### Clone
 
 ```
-git clone https://github.com/kaycebasques/repro.git
+git clone https://github.com/kaycebasques/triage.git
 ```
 
 ### Change working dir
 
 ```
-cd repro/sphinx/3690
+cd triage/sphinx/3690
 ```
 
 ### Build & serve
