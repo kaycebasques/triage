@@ -30,7 +30,7 @@ Replacing `<bzl>` with one of the following:
 
 ### View
 
-Go to http://0.0.0.0:8000
+Go to http://0.0.0.0:8000/genindex.html
 
 ### (Optional) Cleanup
 

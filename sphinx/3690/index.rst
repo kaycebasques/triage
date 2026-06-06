@@ -4,25 +4,25 @@
 
 .. include:: <isonum.txt>
 
-On the following line you should see ``QuickBooks`` followed
-by the trademark symbol correctly rendered as a symbol
-trademark symbol:
-
-QuickBooks\ |trade|
-
-It is written in reST like this:
-
-.. code-block:: rst
-
-   QuickBooks\ |trade|
-
-But in the glossary, when we attempt to use the same reST,
-it does not render correctly:
+in the following glossary you should see ``QuickBooks``
+followed by the trademark symbol rendered correctly
 
 .. glossary::
 
    QuickBooks\ |trade|
       foo bar baz
 
-Note: This does not reproduce as of Sphinx v9.1.0. It renders
-correctly in the glossary.
+Glossary was defined like this:
+
+.. code-block:: rst
+
+   .. glossary::
+
+      QuickBooks\ |trade|
+         foo bar baz
+
+note that trademark symbol is available on this page as ``|trade|`` by including the
+`docutils standard definition file <https://docutils.sourceforge.io/docs/ref/rst/definitions.html>`_
+``<isonum.txt>``
+
+but on :ref:`genindex` this glossary entry is displayed incorrectly as ``QuickBookstrade``
