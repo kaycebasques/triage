@@ -1,0 +1,38 @@
+load("@rules_python//sphinxdocs:sphinx.bzl", "sphinx_build_binary", "sphinx_docs")
+load("@rules_python//sphinxdocs:sphinx_docs_library.bzl", "sphinx_docs_library")
+
+package(default_visibility = ["//visibility:public"])
+
+sphinx_docs_library(
+    name = "content",
+    srcs = [
+        "index.rst",
+    ],
+)
+
+sphinx_build_binary(
+    name = "sphinx",
+    deps = [
+        "@pypi//sphinx",
+        "//foo",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+sphinx_docs(
+    name = "docs",
+    config = "conf.py",
+    formats = [
+        "html",
+    ],
+    sphinx = ":sphinx",
+    strip_prefix = "docs/",
+    deps = [
+        ":content",
+    ],
+    visibility = ["//visibility:public"],
+    allow_persistent_workers = False,
+    extra_opts = [
+        "--fail-on-warning",
+    ],
+)
