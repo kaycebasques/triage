@@ -1,10 +1,11 @@
 module(name = "issue_3705")
-bazel_dep(name = "rules_python", version = "1.9.0")
 
+git_override = use_extension("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository_extension")
+
+bazel_dep(name = "rules_python", version = "1.9.0")
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.defaults(python_version = "3.12")
 python.toolchain(python_version = "3.12")
-
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
     hub_name = "pypi",
@@ -12,3 +13,15 @@ pip.parse(
     requirements_lock = "//:pypi.lock",
 )
 use_repo(pip, "pypi")
+
+#bazel_dep(name = "rules_latex", version = "0.5.0")
+git_override.git_repository(
+    name = "rules_latex",
+    remote = "https://github.com/nicklambourne/rules_latex",
+    commit = "05b25f37003d262239e6115a9adf7b690553fe80", # Use a specific commit hash
+)
+use_repo(git_override, "rules_latex")
+tectonic = use_extension("@rules_latex//latex/toolchain:extensions.bzl", "tectonic")
+tectonic.toolchain()
+use_repo(tectonic, "rules_latex_tectonic_toolchains")
+register_toolchains("@rules_latex_tectonic_toolchains//:all")
