@@ -246,6 +246,99 @@
         }
       }
     },
+    "@@rules_latex+//latex/toolchain:extensions.bzl%tectonic": {
+      "general": {
+        "bzlTransitiveDigest": "LIuCvmeFf7Anl4lGIe0SK2TP8GXiX5giopahT8VwOoM=",
+        "usagesDigest": "RWlBpJQo3YQlG4I5+kyQWywSNzw+EhaZWfwYOfaHDG4=",
+        "recordedInputs": [],
+        "generatedRepoSpecs": {
+          "rules_latex_biber_linux_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%biber_repository",
+            "attributes": {
+              "os": "linux",
+              "cpu": "x86_64"
+            }
+          },
+          "rules_latex_tectonic_linux_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%tectonic_repository",
+            "attributes": {
+              "os": "linux",
+              "cpu": "x86_64",
+              "bundle_repo": "",
+              "biber_repo": "rules_latex_biber_linux_x86_64"
+            }
+          },
+          "rules_latex_biber_linux_aarch64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%biber_repository",
+            "attributes": {
+              "os": "linux",
+              "cpu": "aarch64"
+            }
+          },
+          "rules_latex_tectonic_linux_aarch64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%tectonic_repository",
+            "attributes": {
+              "os": "linux",
+              "cpu": "aarch64",
+              "bundle_repo": "",
+              "biber_repo": "rules_latex_biber_linux_aarch64"
+            }
+          },
+          "rules_latex_biber_macos_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%biber_repository",
+            "attributes": {
+              "os": "macos",
+              "cpu": "x86_64"
+            }
+          },
+          "rules_latex_tectonic_macos_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%tectonic_repository",
+            "attributes": {
+              "os": "macos",
+              "cpu": "x86_64",
+              "bundle_repo": "",
+              "biber_repo": "rules_latex_biber_macos_x86_64"
+            }
+          },
+          "rules_latex_biber_macos_aarch64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%biber_repository",
+            "attributes": {
+              "os": "macos",
+              "cpu": "aarch64"
+            }
+          },
+          "rules_latex_tectonic_macos_aarch64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%tectonic_repository",
+            "attributes": {
+              "os": "macos",
+              "cpu": "aarch64",
+              "bundle_repo": "",
+              "biber_repo": "rules_latex_biber_macos_aarch64"
+            }
+          },
+          "rules_latex_biber_windows_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%biber_repository",
+            "attributes": {
+              "os": "windows",
+              "cpu": "x86_64"
+            }
+          },
+          "rules_latex_tectonic_windows_x86_64": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:repositories.bzl%tectonic_repository",
+            "attributes": {
+              "os": "windows",
+              "cpu": "x86_64",
+              "bundle_repo": "",
+              "biber_repo": "rules_latex_biber_windows_x86_64"
+            }
+          },
+          "rules_latex_tectonic_toolchains": {
+            "repoRuleId": "@@rules_latex+//latex/toolchain:extensions.bzl%_toolchain_hub_repository",
+            "attributes": {}
+          }
+        }
+      }
+    },
     "@@rules_python+//python/uv:uv.bzl%uv": {
       "general": {
         "bzlTransitiveDigest": "yG9F6L2IZXKRbD/aIUa6sU7uITLUTBKOMWPbIvl1VdM=",
