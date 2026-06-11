@@ -26,7 +26,9 @@ Linux:
 
 macOS:
 
-../../bazelisk/darwin/arm64 run :preview`
+```
+../../bazelisk/darwin/arm64 run :preview
+```
 
 ### 4. View
 
