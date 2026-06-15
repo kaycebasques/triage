@@ -1,0 +1,9 @@
+alias(
+    name = "ls",
+    actual = "//docs:_docs/_sources",
+)
+
+alias(
+    name = "serve",
+    actual = "//docs:docs.serve",
+)
