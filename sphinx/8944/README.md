@@ -18,19 +18,26 @@ cd triage/sphinx/8944
 
 ### 3. Build & serve
 
+Linux:
+
 ```
-<bzl> run //src:serve
+../../bazelisk/linux/amd64 run :preview
 ```
 
-Replacing `<bzl>` with one of the following:
+macOS:
 
-* linux x86-64: `../../bazelisk/linux/amd64`
-
-* macOS Apple Silicon: `../../bazelisk/darwin/arm64`
+```
+../../bazelisk/darwin/arm64 run :preview
+```
 
 ### 4. View
 
 Go to http://0.0.0.0:8000
+
+`custom_descr` is listed in the API reference for `Foo` class
+but there is no way to jump to the source code for the
+underlying descriptor `CustomDescriptor` that is defined in
+`foo/descriptors.py`
 
 ### 5. (Optional) Cleanup
 
@@ -60,12 +67,12 @@ by implementing the descriptor protocol: `__get__()`, `__set__()`, or
 `__delete__()`.
 
 In this reproduction, the descriptors are:
+
 - `foo.Foo.custom_descr`: A custom descriptor whose class `CustomDescriptor`
-  implements `__get__()` in
-[foo/descriptors.py](file:///usr/local/google/home/kayce/triage/sphinx/8944/foo/descriptors.py).
+  implements `__get__()` in `foo/descriptors.py`
+
 - `foo.Foo.name`: A built-in descriptor created via the `@property` decorator
-  in
-[foo/__init__.py](file:///usr/local/google/home/kayce/triage/sphinx/8944/foo/__init__.py).
+  in `foo/__init__.py`
 
 Sphinx `autodoc` and `viewcode` document these attributes, but fail to generate
 `[source]` links for them.
