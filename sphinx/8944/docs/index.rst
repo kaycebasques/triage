@@ -4,3 +4,4 @@
 
 .. automodule:: foo
    :members:
+   :undoc-members:
