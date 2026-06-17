@@ -30,9 +30,9 @@ macOS:
 ../../bazelisk/darwin/arm64 run :debug
 ```
 
-We were looking for a nitpicky error along the lines of
-`picky/picky/__init__.py:docstring of picky.do_lock::py:class reference target not found: _thread.allocate_loc`
-but this does not seem to happen anymore:
+We're looking for a nitpicky error along the lines of
+`:py:class reference target not found: _thread.allocate_loc` and
+it indeed still repros in Sphinx 9.1:
 
 ```
 Running Sphinx v9.1.0
@@ -42,9 +42,10 @@ done
 making output directory... done
 locale_dir /usr/local/google/home/kayce/.cache/bazel/_bazel_kayce/d624a0b6c31459f1cbf59a7d644694f4/execroot/_main/bazel-out/k8-fastbuild/bin/docs/docs.run.runfiles/_main/docs/_docs/_sources/locales/en/LC_MESSAGES does not exist
 locale_dir /usr/local/google/home/kayce/.cache/bazel/_bazel_kayce/d624a0b6c31459f1cbf59a7d644694f4/execroot/_main/bazel-out/k8-fastbuild/bin/docs/docs.run.runfiles/_main/docs/_docs/_sources/locales/en/LC_MESSAGES does not exist
-building [mo]: targets for 0 po files that are out of date
+locale_dir /usr/local/google/home/kayce/.cache/bazel/_bazel_kayce/d624a0b6c31459f1cbf59a7d644694f4/execroot/_main/bazel-out/k8-fastbuild/bin/docs/docs.run.runfiles/_main/docs/_docs/_sources/locales/en/LC_MESSAGES does not exist
+building [mo]: all of 0 po files
 writing output... 
-building [html]: targets for 1 source files that are out of date
+building [html]: all source files
 updating environment: locale_dir /usr/local/google/home/kayce/.cache/bazel/_bazel_kayce/d624a0b6c31459f1cbf59a7d644694f4/execroot/_main/bazel-out/k8-fastbuild/bin/docs/docs.run.runfiles/_main/docs/_docs/_sources/locales/en/LC_MESSAGES does not exist
 [new config] 1 added, 0 changed, 0 removed
 reading sources... [100%] index
@@ -65,13 +66,12 @@ copying extra files: done
 copying assets: done
 writing output... [100%] index
 
+<unknown>:1: WARNING: py:class reference target not found: _thread.allocate_lock [ref.class]
 generating indices... genindex py-modindex done
 writing additional pages... search done
 dumping search index in English (code: en)... done
 dumping object inventory... done
-build succeeded.
-
-The HTML pages are in ../../../../../../../../../../../../../../../../../tmp/sphinx-out.
+build finished with problems, 1 warning (with warnings treated as errors).
 ```
 
 ### (Optional) Cleanup
