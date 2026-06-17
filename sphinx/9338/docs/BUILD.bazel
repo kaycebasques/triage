@@ -30,6 +30,8 @@ sphinx_docs(
     extra_opts = [
         "--fail-on-warning",
 	"-v",
+	"-n",
+	"-a",
     ],
     strip_prefix = "docs/",
 )
