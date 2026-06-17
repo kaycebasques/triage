@@ -24,15 +24,20 @@ def main():
     template_dir = workspace_root / "sphinx" / "template"
     target_dir = workspace_root / "sphinx" / issue_num
     files_to_copy = []
-    for item in template_dir.iterdir():
-        if item.name.startswith("bazel-"):
-            continue
-        if item.is_file():
-            files_to_copy.append(item)
-    files_to_copy.sort(key=lambda x: x.name)
+    for root, dirs, files in os.walk(template_dir):
+        # Exclude bazel-* directories from walk
+        dirs[:] = [d for d in dirs if not d.startswith("bazel-")]
+        for file in files:
+            if file.startswith("bazel-"):
+                continue
+            src_path = Path(root) / file
+            rel_path = src_path.relative_to(template_dir)
+            files_to_copy.append((src_path, rel_path))
+    files_to_copy.sort(key=lambda x: x[1])
     target_dir.mkdir(parents=True, exist_ok=False)
-    for src_path in files_to_copy:
-        dest_path = target_dir / src_path.name
+    for src_path, rel_path in files_to_copy:
+        dest_path = target_dir / rel_path
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
         try:
             content = src_path.read_text(encoding='utf-8')
             new_content = content.replace("x2f8gp0", issue_num)
