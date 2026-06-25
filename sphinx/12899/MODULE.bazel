@@ -10,5 +10,6 @@ pip.parse(
     hub_name = "pypi",
     python_version = "3.12",
     requirements_lock = "//:pypi.lock",
+    extra_pip_args = ["--no-cache-dir"],
 )
 use_repo(pip, "pypi")
